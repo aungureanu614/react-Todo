@@ -29,10 +29,12 @@ class TodoList extends Component {
     const { inputVal, items } = this.state;
     return (
       <div className="todoListMain">
-        <form onSubmit={e => this.onSubmit(e)}>
-          <input value={inputVal} onChange={e => this.onChange(e)} />
-          <button type="submit">add</button>
-        </form>
+        <header className="header">
+          <form onSubmit={e => this.onSubmit(e)}>
+            <input value={inputVal} onChange={e => this.onChange(e)} />
+            <button type="submit">add</button>
+          </form>
+        </header>
         <List items={items} />
       </div>
     );
