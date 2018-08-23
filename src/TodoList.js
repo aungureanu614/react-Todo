@@ -10,28 +10,30 @@ class TodoList extends Component {
     };
   }
 
-  onSubmit = (e) => {
+  onSubmit(e) {
     e.preventDefault();
+    const { items, inputVal } = this.state;
     this.setState({
       inputVal: '',
-      items: [...this.state.items, this.state.inputVal]
-    })
+      items: [...items, inputVal],
+    });
   }
 
-  onChange = (e) => {
+  onChange(e) {
     this.setState({
-      inputVal: e.target.value
-    })
+      inputVal: e.target.value,
+    });
   }
 
   render() {
+    const { inputVal, items } = this.state;
     return (
       <div className="todoListMain">
-        <form onSubmit={this.onSubmit}>
-          <input value={this.state.inputVal} onChange={this.onChange} />
+        <form onSubmit={e => this.onSubmit(e)}>
+          <input value={inputVal} onChange={e => this.onChange(e)} />
           <button type="submit">add</button>
         </form>
-        <List items={this.state.items}/>
+        <List items={items} />
       </div>
     );
   }
