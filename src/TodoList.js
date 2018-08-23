@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import List from './List';
 
 class TodoList extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       inputVal: '',
       items: [],
