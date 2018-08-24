@@ -1,4 +1,3 @@
-// import {HtmlWebPackPlugin} from 'html-webpack-plugin'; why doesn't this work?!
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
