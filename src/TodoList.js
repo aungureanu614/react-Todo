@@ -8,6 +8,8 @@ class TodoList extends Component {
       inputVal: '',
       items: [],
     };
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   onSubmit(e) {
@@ -25,17 +27,22 @@ class TodoList extends Component {
     });
   }
 
+  removeItem(itemClicked) {
+    console.log(this.state)
+
+  }
+
   render() {
     const { inputVal, items } = this.state;
     return (
       <div className="todoListMain">
         <header className="header">
-          <form onSubmit={e => this.onSubmit(e)}>
-            <input value={inputVal} onChange={e => this.onChange(e)} />
+          <form onSubmit={this.onSubmit}>
+            <input value={inputVal} onChange={this.onChange} />
             <button type="submit">add</button>
           </form>
         </header>
-        <List items={items} />
+        <List removeItem={this.removeItem} items={items} />
       </div>
     );
   }
