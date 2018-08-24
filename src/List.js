@@ -27,7 +27,7 @@ export default class List extends Component {
 
     return (
       <ul className="theList">
-        {items.map((item, i) => <li onClick={e => this.props.removeItem(e.target.innerText)} key={i}>{item}</li>)}
+        {items.map((item, i) => <li onClick={() => this.props.onRemove(item)} key={i}>{item}</li>)}
       </ul>
     );
   }

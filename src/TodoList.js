@@ -10,6 +10,7 @@ class TodoList extends Component {
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.removeItem = this.removeItem.bind(this);
   }
 
   onSubmit(e) {
@@ -27,9 +28,14 @@ class TodoList extends Component {
     });
   }
 
-  removeItem(itemClicked) {
+  removeItem(target) {
+    const { items, inputVal } = this.state;
     console.log(this.state)
-
+    const filtered = items.filter(item => item !== target);
+    this.setState({
+      inputVal: '',
+      items: [...filtered, inputVal],
+    });
   }
 
   render() {
@@ -42,7 +48,7 @@ class TodoList extends Component {
             <button type="submit">add</button>
           </form>
         </header>
-        <List removeItem={this.removeItem} items={items} />
+        <List onRemove={this.removeItem} items={items} />
       </div>
     );
   }
