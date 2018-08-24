@@ -29,12 +29,10 @@ class TodoList extends Component {
   }
 
   removeItem(target) {
-    const { items, inputVal } = this.state;
-    console.log(this.state)
+    const { items } = this.state;
     const filtered = items.filter(item => item !== target);
     this.setState({
-      inputVal: '',
-      items: [...filtered, inputVal],
+      items: [...filtered],
     });
   }
 
